@@ -1,0 +1,56 @@
+<!--pages/home/home.wxml-->
+<view class='page flex-column-center'>
+
+  <view class='btn-view flex-row-center'>
+    <view class='btn flex-center' catchtap='_scan'>扫描</view>
+    <view class='btn flex-center' catchtap='_stopScan'>停止扫描</view>
+    <view class='btn flex-center' catchtap='_disconnect'>断开蓝牙</view>
+  </view>
+
+  <view class='status-view flex-row-center' style='color:{{connected?"#76d386":"red"}}'>{{connected?("Connected  "+device.name):"Disconnected"}}</view>
+
+  <view class='title-view'>Peripherals</view>
+  <scroll-view scroll-y>
+    <block wx:for='{{devices}}' wx:key='{{index}}'>
+      <view class='cell flex-row-center' id='{{index}}' catchtap='_connect'>
+        <text class='name'>{{item.name}}</text>
+        <image src='../../images/arrow.png'></image>
+      </view>
+      <view class='line' />
+    </block>
+  </scroll-view>
+
+  <view class='title-view'>Notify Characteristic</view>
+  <scroll-view  scroll-y style='height:{{notifyUUIDs.length<=1?80:160}}rpx'>
+    <block wx:for='{{notifyUUIDs}}' wx:key='{{index}}'>
+      <view class='cell flex-row-center'>
+        <text class='uuid'>{{item.cuuid}}</text>
+        <text class='btn' id='{{index}}' catchtap='_notify'>{{item.listening?"Stop":"Notify"}}</text>
+      </view>
+      <view class='line' />
+    </block>
+  </scroll-view>
+
+  <view class='title-view'>Read Characteristic</view>
+  <scroll-view scroll-y style='height:{{readUUIDs.length<=1?80:160}}rpx'>
+    <block wx:for='{{readUUIDs}}' wx:key='{{index}}'>
+      <view class='cell flex-row-center'>
+        <text class='uuid'>{{item.cuuid}}</text>
+        <text class='btn' id='{{index}}' catchtap='_read'>Read</text>
+      </view>
+      <view class='line' />
+    </block>
+  </scroll-view>
+
+  <view class='title-view'>Write Characteristic</view>
+  <scroll-view scroll-y style='height:{{writeUUIDs.length<=1?80:160}}rpx'>
+    <block wx:for='{{writeUUIDs}}' wx:key='{{index}}'>
+      <view class='cell flex-row-center'>
+        <text class='uuid'>{{item.cuuid}}</text>
+        <text class='btn' id='{{index}}' catchtap='_write'>Write</text>
+      </view>
+      <view class='line' />
+    </block>
+  </scroll-view>
+
+</view>

@@ -1,0 +1,22 @@
+{
+  "name": "wx-ant-ble",
+  "version": "1.1.0",
+  "description": "微信、支付宝小程序BLE蓝牙SDK",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "zhaodahai",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zhaodahai/wx-ant-ble.git"
+  },
+  "keywords": [
+    "ble", "bluetooth", "蓝牙","小程序"
+  ],
+  "bugs": {
+    "url": "https://github.com/zhaodahai/wx-ant-ble/issues"
+  },
+  "homepage": "https://github.com/zhaodahai/wx-ant-ble#readme"
+}

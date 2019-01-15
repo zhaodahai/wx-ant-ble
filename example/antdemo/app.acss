@@ -1,0 +1,63 @@
+/**app.wxss**/
+page {
+  flex: 1;
+  display: flex;
+  background: #f7f7f7;
+  flex-direction: column;
+  align-items: center;
+}
+
+.absTopLeft0 {
+  position: absolute;
+  top: 0rpx;
+  left: 0rpx;
+}
+
+/* 居中显示 */
+.flex-center{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* 水平居中显示 */
+.flex-row-center{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+/* 垂直居中显示 */
+.flex-column-center{
+  display: flex;
+  flex-direction: column;
+  align-items: center; 
+}
+
+/* 垂直靠左显示 */
+.flex-column-left{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; 
+}
+
+/* 水平靠左显示 */
+.flex-row-left{
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: center
+}
+
+/* 垂直居下显示 */
+.flex-column-end{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  color: transparent;
+}
