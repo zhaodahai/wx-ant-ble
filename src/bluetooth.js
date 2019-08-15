@@ -97,7 +97,7 @@ export default class Bluetooth {
         // 销毁扫描延时
         this.destoryTimer();
         // 设置扫描超时
-        this.scanTimeoutTimer = timeout!==-1 ? setTimeout(() => {
+        this.scanTimeoutTimer = timeout!==-1 ? setTimeout(__ => {
           this.stopScan();
           if (this.scanDevices.length === 0) { // 扫描超时
             this.bm.log('startBluetoothDevicesDiscovery fail ' , 'timeout');
@@ -229,7 +229,7 @@ export default class Bluetooth {
           this.bm.log('onBLEConnectionStateChange', res);
           if (!res.connected && this.bm.connectStatus !== ConnectStatus.disconnected) {
             this.bm.connectStatus = ConnectStatus.disconnected;
-            if (res.errorCode === 0) {
+            if (res.errorCode === 0 || res.errorCode === undefined) {
               this.callBackConnectStatus(SuccessCallbackEvent.Success_ConnectStatus_CB_Stop);
             } else if (res.errorCode === 10003) {
               this.callBackConnectStatus(ErrorCallbackEvent.Error_ConnectStatus_CB_Disconnected);
@@ -268,7 +268,7 @@ export default class Bluetooth {
             this.bm.connectStatus = ConnectStatus.connected;
             this.callBackConnectStatus(SuccessCallbackEvent.Success_ConnectStatus_CB_Connected);
           }).catch(e => {
-            this.bm.log('api connecting error', e);
+            this.bm.logwarn('api connecting error', e);
             // 出现错误断开蓝牙，避免出现已连接成功未找到服务或者特征出错时，再次连接状态不正确
             _.api('closeBLEConnection', 'disconnectBLEDevice', {
               deviceId: this.bm.deviceInfo.deviceId
@@ -280,7 +280,7 @@ export default class Bluetooth {
         // 开始连接接口调用成功
         return Promise.resolve(SuccessApiThen.Success_Connect);
       }).catch(e => {
-        this.bm.log('api connect error', e);
+        this.bm.logwarn('api connect error', e);
         // 未知错误，直接报连接失败
         if (e.code === 100000) e = ErrorCallbackEvent.Error_ConnectStatus_CB_ConnectFail;
         this.bm.connectStatus = ConnectStatus.disconnected;

@@ -6,15 +6,25 @@
 
 ### [详细接口说明](READAPI.md)
 
+## Release Notes
+
+#### v1.1.0      2019/01/15
+- 发布第一个可用版本。封装蓝牙接口，兼容微信和支付宝小程序。附有说明和demo。
+
+#### v1.1.1      2019/08/15
+- 1、修复微信小程序安卓手机断开连接，状态更新不回调的bug。
+- 2、已知另一个微信小程序蓝牙bug。安卓手机在设备异常断开时（比如断电），不会触发`onBLEConnectionStateChange`回调。除非在已经设置监听notify的情况下。
+
 ## Features
 - 兼容微信和支付宝小程序
 - 简洁但功能完整的Api，可以根据需求自由调用
 - 接口均有返回状态，判断是否调用成功
 - 单例模式
+- [完整例子](https://github.com/zhaodahai/wxble)
 
 ## Directory
 - ～/index.js SDK入口
-- ～/src      SDK源码 
+- ～/src        SDK源码 
 - ～/example  微信和支付宝小程序demo
 
 ## Installation
@@ -163,19 +173,11 @@
 ```
 
 ## WxApp
-
+[仓库地址](https://github.com/zhaodahai/wxble)
 <center class="half">
     <img src="/resource/QRcode.jpg" width="300" height="300" alt="BLE蓝牙开发助手二维码"><img src="/resource/powerpoint.gif" width="280" height="500" alt="BLE蓝牙开发助手演示">
 </center>
 
-
-## ReleaseNotes
-
-```
-  v1.1.0
-  2019/01/15
-  发布第一个可用版本。封装蓝牙接口，兼容微信和支付宝小程序。附有说明和demo。
-```
 
 ## Notice
 - 具体使用请查看[demo](example)和[Api文档](READAPI.md)

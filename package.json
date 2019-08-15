@@ -1,6 +1,6 @@
 {
   "name": "wx-ant-ble",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "微信、支付宝小程序BLE蓝牙SDK",
   "main": "index.js",
   "scripts": {
