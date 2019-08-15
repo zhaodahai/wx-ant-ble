@@ -1,7 +1,7 @@
 
 import { BTManager } from './src/btmanager.js';
 import { ConnectStatus, SuccessCallbackEvent, ErrorCallbackEvent, SuccessApiThen, ErrorApiCatch } from './src/enum.js';
-const Version = '1.1.0';
+const Version = '1.1.1';
 
 export {
   Version,
