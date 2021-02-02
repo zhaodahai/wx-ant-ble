@@ -382,7 +382,7 @@ export default class Bluetooth {
         if (typeof value === 'string') {
           value = _.str2ab(value);
         } else {
-          value = typedArrayToArrayBuffer(value);
+          value = _.typedArray2ArrayBuffer(value);
         }
       } else if (typeof value !== 'string'){
         value = _.ab2str(value);
